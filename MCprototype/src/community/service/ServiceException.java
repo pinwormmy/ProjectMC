@@ -1,4 +1,4 @@
-package guestbook.service;
+package community.service;
 
 public class ServiceException extends RuntimeException {
 

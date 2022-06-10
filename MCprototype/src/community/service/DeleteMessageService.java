@@ -1,10 +1,10 @@
-package guestbook.service;
+package community.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import guestbook.dao.MessageDao;
-import guestbook.model.Message;
+import community.dao.CommunityDAO;
+import community.model.CommunityDTO;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 
@@ -19,21 +19,21 @@ public class DeleteMessageService {
 	private DeleteMessageService() {
 	}
 
-	public void deleteMessage(int messageId, String password) {
+	public void deleteMessage(int messageId, String inputedPw) {
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 
-			MessageDao messageDao = MessageDao.getInstance();
-			Message message = messageDao.select(conn, messageId);
-			if (message == null) {
-				throw new MessageNotFoundException("메시지 없음");
+			CommunityDAO communityDAO = CommunityDAO.getInstance();
+			CommunityDTO communityDTO = communityDAO.select(conn, messageId);
+			if (communityDTO == null) {
+				throw new MessageNotFoundException("메시지 없음 오류!!");
 			}
-			if (!message.matchPassword(password)) {
-				throw new InvalidPassowrdException("bad password");
+			if (!communityDTO.getPostPw().equals(inputedPw)) {
+				throw new InvalidPassowrdException("비밀번호 오류!!");
 			}
-			messageDao.delete(conn, messageId);
+			communityDAO.delete(conn, messageId);
 
 			conn.commit();
 		} catch (SQLException ex) {

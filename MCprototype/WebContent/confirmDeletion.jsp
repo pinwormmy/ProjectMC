@@ -6,10 +6,11 @@
 <body>
 
 <form action="deleteMessage.jsp" method="post">
-<input type="hidden" name="messageId" value="${param.messageId}">
+<input type="hidden" name="messageId" value="${param.cNo}">
 메시지를 삭제하시려면 암호를 입력하세요:<br>
-암호: <input type="password" name="password"> <br>
+암호: <input type="password" name="inputedPw"> <br>
 <input type="submit" value="메시지 삭제하기">
 </form>
+
 </body>
 </html>

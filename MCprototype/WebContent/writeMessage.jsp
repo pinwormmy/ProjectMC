@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page errorPage="errorView.jsp" %>
-<%@ page import="guestbook.model.Message" %>
-<%@ page import="guestbook.service.WriteMessageService" %>
+<%@ page import="community.model.CommunityDTO" %>
+<%@ page import="community.service.WriteMessageService" %>
 <%
-	request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 %>
-<jsp:useBean id="message" class="guestbook.model.Message">
+<jsp:useBean id="message" class="community.model.CommunityDTO">
 	<jsp:setProperty name="message" property="*" />
 </jsp:useBean>
 <%

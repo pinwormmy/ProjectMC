@@ -1,14 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="guestbook.service.DeleteMessageService" %>
-<%@ page import="guestbook.service.InvalidPassowrdException" %>
+<%@ page import="community.service.DeleteMessageService" %>
+<%@ page import="community.service.InvalidPassowrdException" %>
 <%
 	int messageId = Integer.parseInt(request.getParameter("messageId"));
-	String password = request.getParameter("password");
+	String inputedPw = request.getParameter("inputedPw");
 	boolean invalidPassowrd = false;
 	try {
 		DeleteMessageService deleteService = 
 				DeleteMessageService.getInstance();
-		deleteService.deleteMessage(messageId, password);
+		deleteService.deleteMessage(messageId, inputedPw);
 	} catch(InvalidPassowrdException ex) {
 		invalidPassowrd = true;
 	}

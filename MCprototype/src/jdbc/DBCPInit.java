@@ -23,7 +23,7 @@ public class DBCPInit extends HttpServlet {
 
 	private void loadJDBCDriver() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException ex) {
 			throw new RuntimeException("fail to load JDBC Driver", ex);
 		}
@@ -32,10 +32,10 @@ public class DBCPInit extends HttpServlet {
 	private void initConnectionPool() {
 		try {
 			String jdbcUrl = 
-					"jdbc:mysql://localhost:3306/guestbook?" + 
-					"useUnicode=true&characterEncoding=utf8";
-			String username = "jspexam";
-			String pw = "jsppw";
+					"jdbc:oracle:thin:@localhost:1521:xe";
+					
+			String username = "ptest";
+			String pw = "1111";
 
 			ConnectionFactory connFactory = 
 					new DriverManagerConnectionFactory(jdbcUrl, username, pw);
@@ -57,7 +57,7 @@ public class DBCPInit extends HttpServlet {
 			Class.forName("org.apache.commons.dbcp2.PoolingDriver");
 			PoolingDriver driver = 
 					(PoolingDriver) DriverManager.getDriver("jdbc:apache:commons:dbcp:");
-			driver.registerPool("guestbook", connectionPool);
+			driver.registerPool("ptest", connectionPool);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
