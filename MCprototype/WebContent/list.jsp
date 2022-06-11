@@ -1,9 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-
 <%@ page import="community.model.CommunityDTO"%>
 <%@ page import="community.service.MessageListView"%>
 <%@ page import="community.service.GetMessageListService"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
@@ -27,7 +25,7 @@ MessageListView viewData = messageListService.getMessageList(pageNumber);
 	<form action="writeMessage.jsp" method="post">
 		이름: <input type="text" name="mId"> <br> 
 		암호: <input type="password" name="postPw"> <br> 
-			<input type="hidden" name="title" value="방명록으로 테스트라 제목이 없다"> 
+			<input type="hidden" name="title" value="테스트라 제목이 없다"> 
 		메시지:	<textarea name="content" cols="30" rows="3"></textarea>
 		<br> <input type="submit" value="메시지 남기기" />
 	</form>

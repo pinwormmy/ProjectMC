@@ -5,7 +5,7 @@ import java.util.Date;
 public class CommunityDTO {
 
 	private int cNo;
-	private String mId;
+	private String mId; // 테스트위해 제약조건 제거?
 	private int mLevel;
 	private String title;
 	private String content;

@@ -20,7 +20,7 @@ public class GetMessageListService {
 	private GetMessageListService() {
 	}
 
-	private static final int MESSAGE_COUNT_PER_PAGE = 5;
+	private static final int MESSAGE_COUNT_PER_PAGE = 3;
 
 	public MessageListView getMessageList(int pageNumber) {
 		Connection conn = null;
@@ -40,10 +40,12 @@ public class GetMessageListService {
 				endRow = firstRow + MESSAGE_COUNT_PER_PAGE - 1;
 				messageList =
 						communityDAO.selectList(conn, firstRow, endRow);
+				
 			} else {
 				currentPageNumber = 0;
 				messageList = Collections.emptyList();
 			}
+			
 			return new MessageListView(messageList,
 					messageTotalCount, currentPageNumber,
 					MESSAGE_COUNT_PER_PAGE, firstRow, endRow);

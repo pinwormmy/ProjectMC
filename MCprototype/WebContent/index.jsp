@@ -9,11 +9,26 @@
 <title>밀슐랭 프로토타입</title>
 </head>
 <body>
-일단 첫페이지 테스트 <br>
+
+<div class="login">
+<form action="/login" method="post">
+	아이디 : <input type="text" name="mId">
+	비밀번호 : <input type="password" name="pw">
+	<button>로그인</button>
+	<a href="./signUp.jsp">회원가입</a>
+</form>
+</div>
+
+<!--
+<div>
+	?? 님이 로그인 중입니다.(아직 미구현)
+</div>
+-->
 
 <h1>빠릿빠릿하게 만들어보자</h1>
 
-오라클 디비로 수정해서 연동은 했는데, 확인하려면 기존 방명록 수정해서 넣어봐야한다 이것부터 진행
+방명록으로 오라클DB 연동 확인.
+회원가입 먼저 구현해보기
 
 </body>
 </html>

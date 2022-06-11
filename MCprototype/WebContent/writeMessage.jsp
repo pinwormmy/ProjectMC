@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page errorPage="errorView.jsp" %>
 <%@ page import="community.model.CommunityDTO" %>
 <%@ page import="community.service.WriteMessageService" %>
+
 <%
 request.setCharacterEncoding("utf-8");
 %>

@@ -25,10 +25,13 @@ public class CommunityDAO {
 		try {
 			pstmt = conn.prepareStatement(
 					"insert into community " + 
-					"(mId, postPw, content) values (?, ?, ?)");
+					"(cNo, mId, mLevel, title, content, postPw, regDate) values (cno_seq.nextval, ?, ?, ?, ?, ?, sysdate)");
 			pstmt.setString(1, communityDTO.getmId());
-			pstmt.setString(2, communityDTO.getPostPw());
-			pstmt.setString(3, communityDTO.getContent());
+			pstmt.setInt(2, 0);
+			pstmt.setString(3, communityDTO.getTitle());
+			pstmt.setString(4, communityDTO.getContent());
+			pstmt.setString(5, communityDTO.getPostPw());
+			
 			return pstmt.executeUpdate();
 		} finally {
 			JdbcUtil.close(pstmt);
@@ -56,10 +59,11 @@ public class CommunityDAO {
 
 	private CommunityDTO makeMessageFromResultSet(ResultSet rs) throws SQLException {
 		CommunityDTO communityDTO = new CommunityDTO();
-		communityDTO.setcNo(rs.getInt("message_id"));
-		communityDTO.setmId(rs.getString("guest_name"));
-		communityDTO.setPostPw(rs.getString("password"));
-		communityDTO.setContent(rs.getString("message"));
+		communityDTO.setcNo(rs.getInt("cNo"));
+		communityDTO.setmId(rs.getString("mId"));
+		communityDTO.setmLevel(rs.getInt("mLevel"));
+		communityDTO.setPostPw(rs.getString("postPw"));
+		communityDTO.setContent(rs.getString("content"));
 		return communityDTO;
 	}
 
@@ -70,6 +74,7 @@ public class CommunityDAO {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("select count(*) from community");
 			rs.next();
+			
 			return rs.getInt(1);
 		} finally {
 			JdbcUtil.close(rs);
@@ -81,13 +86,17 @@ public class CommunityDAO {
 			throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		try {
 			pstmt = conn.prepareStatement(
 					"select * from community " + 
-					"order by cNo desc limit ?, ?");
-			pstmt.setInt(1, firstRow - 1);
-			pstmt.setInt(2, endRow - firstRow + 1);
+					"order by cNo desc"); // 오라클엔 limit 기능 지원 안해서 오류뜸
+			// limit문 빼버림
+			// pstmt.setInt(1, firstRow - 1);
+			// pstmt.setInt(2, endRow - firstRow + 1);
+			
 			rs = pstmt.executeQuery();
+			
 			if (rs.next()) {
 				List<CommunityDTO> messageList = new ArrayList<CommunityDTO>();
 				do {
@@ -107,7 +116,7 @@ public class CommunityDAO {
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(
-					"delete from commnunity where cNo = ?");
+					"delete from community where cNo = ?");
 			pstmt.setInt(1, messageId);
 			return pstmt.executeUpdate();
 		} finally {
