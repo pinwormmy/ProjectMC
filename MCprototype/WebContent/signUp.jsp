@@ -5,23 +5,61 @@
 <head>
 <meta charset="UTF-8">
 <title>밀슐랭 회원가입</title>
+
 </head>
 <body>
 회원가입 양식
 
 <!-- 데이터 전송 후 처리는 어떻게 해야하나~ 일단 방명록이랑 유사하게 구현 -->
 
-<form action="/submitSignUp">
-ID : <input type="text" name="mId"> <br>
-비밀번호 : <input type="password" name="pw"> <br>
-비밀번호 확인 : <input type="password" name="pw2"> <br>
-이름 : <input type="text" name="mName"> <br>
-연락처 : <input type="tel" name="phone"> <br>
-e메일 : <input type="email" name="email"> <br>
-주소 : <input type="text" name="address" size="40"> <br>
-<button>회원가입</button>
+*표시된 항목은 꼭 작성해주셔야 합니다.
+
+<form name="submintSignUp" action="submitSignUp.jsp" method="post">
+*ID : <input type="text" name="mId" id="mId"> <br>
+*비밀번호 : <input type="password" name="pw" id="pw"> <br>
+*비밀번호 확인 : <input type="password" name="pw2" id="pw2"> <br>
+*이름 : <input type="text" name="mName" id="mName"> <br>
+연락처 : <input type="tel" name="phone" id="phone"> <br>
+e메일 : <input type="email" name="email" id="email"> <br>
+주소 : <input type="text" name="address" id="address" size="40"> <br>
+<button type="button" onclick="checkSignupForm();">회원가입</button>
 </form>
 <!-- 아이디 중복 확인, 비밀번호확인란 일치여부, 이메일 인증 추가 검토 -->
 
+<script type="text/javascript">
+// ㅁㄴㅇㄹ
+	alert("그냥 자바스크립트 테스트~");
+
+	function checkSignupForm(){
+		var mId = document.getElementById("mId");
+		var pw = document.getElementById("pw");
+		var pw2 = document.getElementById("pw2");
+		var mName = document.getElementById("mName");
+		var phone = document.getElementById("phone");
+		var email = document.getElementById("email");
+		var address = document.getElementById("address");
+		
+		if(mId.value == ""){
+			alert("ID를 입력하세요!!");
+			mId.focus();
+			return false;
+		}
+		
+		if(pw.value == ""){
+			alert("비밀번호를 입력하세요!!");
+			pw.focus();
+			return false;
+		}
+		
+		document.submitSignUp.submit();
+	}
+	
+</script>
+
 </body>
+
+
+
+
 </html>
+
