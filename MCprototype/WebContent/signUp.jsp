@@ -14,7 +14,7 @@
 
 *표시된 항목은 꼭 작성해주셔야 합니다.
 
-<form name="submintSignUp" action="submitSignUp.jsp" method="post">
+<form id="submintSignUp" action="submitSignUp.jsp" method="post">
 *ID : <input type="text" name="mId" id="mId"> <br>
 *비밀번호 : <input type="password" name="pw" id="pw"> <br>
 *비밀번호 확인 : <input type="password" name="pw2" id="pw2"> <br>
@@ -44,10 +44,24 @@ e메일 : <input type="email" name="email" id="email"> <br>
 			mId.focus();
 			return false;
 		}
-		
 		if(pw.value == ""){
 			alert("비밀번호를 입력하세요!!");
 			pw.focus();
+			return false;
+		}
+		if(pw2.value == ""){
+			alert("비밀번호 확인도 입력하세요!!");
+			pw2.focus();
+			return false;
+		}
+		if(pw.value != pw2.value){ // 작동확인
+			alert("비밀번호 재입력까지 일치해야합니다." + pw.value + " "+ pw2.value);
+			pw.focus();
+			return false;
+		}
+		if(mName.value == ""){
+			alert("이름을 입력하세요!!");
+			mName.focus();
 			return false;
 		}
 		
