@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="member.model.MemberDTO" %>
-<%@ page import="member.service.SubmitSignUpService" %>
+<%@ page import="member.service.MemberService" %>
 
 <%
-	request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 %>
 
 <jsp:useBean id="memberDTO" class="member.model.MemberDTO">
@@ -12,7 +12,7 @@
 </jsp:useBean>
 
 <%
-	SubmitSignUpService signUpService = SubmitSignUpService.getInstance();
+MemberService signUpService = MemberService.getInstance();
 	signUpService.submitSignUp(memberDTO);
 %>
 

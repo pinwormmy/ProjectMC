@@ -14,8 +14,8 @@
 
 *표시된 항목은 꼭 작성해주셔야 합니다.
 
-<form id="submintSignUp" action="submitSignUp.jsp" method="post">
-*ID : <input type="text" name="mId" id="mId"> <br>
+<form id="submitSignUp" action="submitSignUp.jsp" method="post">
+*ID : <input type="text" name="mId" id="mId"> <button type="button" id="checkDuplicatedId" onclick="checkUniqueId()">중복확인</button> <br>
 *비밀번호 : <input type="password" name="pw" id="pw"> <br>
 *비밀번호 확인 : <input type="password" name="pw2" id="pw2"> <br>
 *이름 : <input type="text" name="mName" id="mName"> <br>
@@ -27,10 +27,23 @@ e메일 : <input type="email" name="email" id="email"> <br>
 <!-- 아이디 중복 확인, 비밀번호확인란 일치여부, 이메일 인증 추가 검토 -->
 
 <script type="text/javascript">
-// ㅁㄴㅇㄹ
-	alert("그냥 자바스크립트 테스트~");
+
+	var isUniqueId = false;
+	
+	function checkUniqueId(){
+		var mId = document.getElementById("mId");
+		
+		if(mId.value == ""){
+			alert("ID를 입력하세요!!");
+			mId.focus();
+			return false;
+		}
+		
+		window.open("checkUniqueId.jsp", "checkUniqueIdWindow", "width=400, height=350");
+	}
 
 	function checkSignupForm(){
+		var submitSignUp = document.getElementById('submitSignUp');
 		var mId = document.getElementById("mId");
 		var pw = document.getElementById("pw");
 		var pw2 = document.getElementById("pw2");
@@ -55,7 +68,7 @@ e메일 : <input type="email" name="email" id="email"> <br>
 			return false;
 		}
 		if(pw.value != pw2.value){ // 작동확인
-			alert("비밀번호 재입력까지 일치해야합니다." + pw.value + " "+ pw2.value);
+			alert("비밀번호 재입력까지 일치해야합니다.");
 			pw.focus();
 			return false;
 		}
@@ -64,8 +77,7 @@ e메일 : <input type="email" name="email" id="email"> <br>
 			mName.focus();
 			return false;
 		}
-		
-		document.submitSignUp.submit();
+		submitSignUp.submit();
 	}
 	
 </script>

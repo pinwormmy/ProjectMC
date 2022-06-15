@@ -42,4 +42,13 @@ public class JdbcUtil {
 			}
 		}
 	}
+	
+	public static void printSQLException(SQLException e){
+	    System.out.println("SQLException exception: ");
+        System.out.println("Message:....." + e.getMessage());
+        System.out.println("SQLState:...." + e.getSQLState());
+        System.out.println("Vendor Code:." + e.getErrorCode());
+        System.out.println("-----------------------------------------------------");
+        e.printStackTrace();
+	}
 }
