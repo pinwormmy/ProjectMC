@@ -2,9 +2,6 @@
 <%@ page import="community.model.CommunityDTO" %>
 <%@ page import="community.service.WriteMessageService" %>
 
-<%
-request.setCharacterEncoding("utf-8");
-%>
 <jsp:useBean id="message" class="community.model.CommunityDTO">
 	<jsp:setProperty name="message" property="*" />
 </jsp:useBean>

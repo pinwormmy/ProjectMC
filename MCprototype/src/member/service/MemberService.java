@@ -40,7 +40,7 @@ public class MemberService {
             JdbcUtil.printSQLException(e);
             JdbcUtil.close(conn);
         }
-        System.out.println("중복확인 서비스구문 오작동 확인바람");
+        System.out.println("중복확인 제대로 안된듯??");
         return false;
     }
 

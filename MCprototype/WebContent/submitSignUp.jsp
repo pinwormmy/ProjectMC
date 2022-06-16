@@ -3,10 +3,6 @@
 <%@ page import="member.model.MemberDTO" %>
 <%@ page import="member.service.MemberService" %>
 
-<%
-request.setCharacterEncoding("utf-8");
-%>
-
 <jsp:useBean id="memberDTO" class="member.model.MemberDTO">
 	<jsp:setProperty name="memberDTO" property="*" />
 </jsp:useBean>

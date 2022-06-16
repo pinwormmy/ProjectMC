@@ -45,10 +45,10 @@ public class MemberDAO {
         
         ResultSet resultSet;
         PreparedStatement pstmt = null;
-        
-        pstmt = conn.prepareStatement("select into member where mId=?");
+              
+        pstmt = conn.prepareStatement("select * from member where mId=?");
         pstmt.setString(1, inputedId);
-        resultSet =  pstmt.executeQuery();
+        resultSet =  pstmt.executeQuery();      
         
         if(resultSet.next())
             return false;

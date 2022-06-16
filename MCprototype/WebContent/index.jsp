@@ -15,7 +15,7 @@
 	아이디 : <input type="text" name="mId">
 	비밀번호 : <input type="password" name="pw">
 	<button>로그인</button>
-	<a href="./signUp.jsp">회원가입</a>
+	<a href="signUp.jsp">회원가입</a>
 </form>
 </div>
 
