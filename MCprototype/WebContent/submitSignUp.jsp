@@ -8,8 +8,8 @@
 </jsp:useBean>
 
 <%
-MemberService signUpService = MemberService.getInstance();
-	signUpService.submitSignUp(memberDTO);
+	MemberService memberService = MemberService.getInstance();
+	memberService.submitSignUp(memberDTO);
 %>
 
 <html>

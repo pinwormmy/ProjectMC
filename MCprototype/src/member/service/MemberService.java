@@ -43,5 +43,19 @@ public class MemberService {
         System.out.println("중복확인 제대로 안된듯??");
         return false;
     }
+	
+	public int login(String id, String pw) {
+        Connection conn = null;
+        try {
+            conn = ConnectionProvider.getConnection();
+            MemberDAO memberDAO = MemberDAO.getInstance();
+            
+            return memberDAO.login(conn, id, pw);
+        } catch (SQLException e) {
+            JdbcUtil.printSQLException(e);
+            JdbcUtil.close(conn);
+        }
+        return 0;
+    }
 
 }

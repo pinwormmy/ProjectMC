@@ -4,17 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import community.model.CommunityDTO;
 import jdbc.JdbcUtil;
 import member.model.MemberDTO;
 
 public class MemberDAO {
 	private static MemberDAO memberDAO = new MemberDAO();
+	
 	public static MemberDAO getInstance() {
 		return memberDAO;
 	}
@@ -54,6 +49,25 @@ public class MemberDAO {
             return false;
         else
             return true;    
+    }
+    
+    public int login(Connection conn, String id, String pw) throws SQLException {
+        ResultSet resultSet;
+        PreparedStatement pstmt = null;
+        try {
+            pstmt = conn.prepareStatement("select * from member where mId= ? and pw= ?");
+        
+            pstmt.setString(1, id);
+            pstmt.setString(2, pw);
+            resultSet =  pstmt.executeQuery();    
+            
+            if(resultSet.next())
+                return 1;
+            else
+                return 0;    
+        } finally {
+            JdbcUtil.close(pstmt);
+        }
     }
 
 
