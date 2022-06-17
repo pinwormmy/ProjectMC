@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
-import community.dao.CommunityDAO;
-import community.model.CommunityDTO;
+import dao.CommunityDAO;
+import dto.CommunityDTO;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 

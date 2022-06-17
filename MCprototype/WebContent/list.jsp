@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ page import="community.model.CommunityDTO"%>
+<%@ page import="dto.CommunityDTO"%>
 <%@ page import="community.service.MessageListView"%>
 <%@ page import="community.service.GetMessageListService"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

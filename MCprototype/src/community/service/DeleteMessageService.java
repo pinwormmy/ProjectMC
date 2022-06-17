@@ -3,8 +3,8 @@ package community.service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import community.dao.CommunityDAO;
-import community.model.CommunityDTO;
+import dao.CommunityDAO;
+import dto.CommunityDTO;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 

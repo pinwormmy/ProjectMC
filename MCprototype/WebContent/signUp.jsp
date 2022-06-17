@@ -22,6 +22,7 @@
 		: <input type="email" name="email" id="email"> <br> 주소 :
 		<input type="text" name="address" id="address" size="40"> <br>
 		<button type="button" onclick="checkSignupForm();">회원가입</button>
+		<button type="button" onclick="location.href='index.jsp'">취소</button>
 	</form>
 	<!-- 아이디랑 비번에 정규표현식 적용,이메일 인증 추가 검토, 카카오api주소 등록 검토 -->
 

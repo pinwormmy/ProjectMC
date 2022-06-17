@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="member.model.MemberDTO" %>
-<%@ page import="member.service.MemberService" %>
+<%@ page import="dto.MemberDTO" %>
+<%@ page import="service.MemberService" %>
 
-<jsp:useBean id="memberDTO" class="member.model.MemberDTO">
+<jsp:useBean id="memberDTO" class="dto.MemberDTO">
 	<jsp:setProperty name="memberDTO" property="*" />
 </jsp:useBean>
 

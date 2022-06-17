@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="member.model.MemberDTO" %>
-<%@ page import="member.service.MemberService" %>
+<%@ page import="dto.MemberDTO" %>
+<%@ page import="service.MemberService" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%

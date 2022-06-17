@@ -1,3 +1,5 @@
 /member/
-/jdbc/
-/filter/
+/dao/
+/service/
+/dto/
+/community/

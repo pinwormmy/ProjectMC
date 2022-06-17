@@ -2,7 +2,7 @@ package community.service;
 
 import java.util.List;
 
-import community.model.CommunityDTO;
+import dto.CommunityDTO;
 
 public class MessageListView {
 

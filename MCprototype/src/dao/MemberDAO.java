@@ -1,11 +1,12 @@
-package member.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import dto.MemberDTO;
+import dto.ProductDTO;
 import jdbc.JdbcUtil;
-import member.model.MemberDTO;
 
 public class MemberDAO {
 	private static MemberDAO memberDAO = new MemberDAO();
@@ -15,6 +16,22 @@ public class MemberDAO {
 	}
 	
 	private MemberDAO() {}
+	
+	private MemberDTO makeMemberFromResultSet(ResultSet rs) throws SQLException {
+	    MemberDTO memberDTO = new MemberDTO();
+        
+	    memberDTO.setmNo(rs.getInt("mNo"));
+	    memberDTO.setmId(rs.getString("mId"));
+	    memberDTO.setPw(rs.getString("pw"));
+	    memberDTO.setmName(rs.getString("mName"));
+	    memberDTO.setPhone(rs.getString("phone"));
+	    memberDTO.setAddress(rs.getString("address"));
+	    memberDTO.setEmail(rs.getString("email"));
+	    memberDTO.setRegDate(rs.getDate("regDate"));
+	    memberDTO.setmLevel(rs.getInt("mLevel"));        
+        
+        return memberDTO;
+    }
 	
 	public int submitSignUp(Connection conn, MemberDTO memberDTO) throws SQLException {
 		PreparedStatement pstmt = null;
@@ -51,22 +68,20 @@ public class MemberDAO {
             return true;    
     }
     
-    public int login(Connection conn, String id, String pw) throws SQLException {
-        ResultSet resultSet;
-        PreparedStatement pstmt = null;
-        try {
-            pstmt = conn.prepareStatement("select * from member where mId= ? and pw= ?");
+    public MemberDTO login(Connection conn, String id, String pw) throws SQLException {
         
-            pstmt.setString(1, id);
-            pstmt.setString(2, pw);
-            resultSet =  pstmt.executeQuery();    
-            
-            if(resultSet.next())
-                return 1;
-            else
-                return 0;    
-        } finally {
-            JdbcUtil.close(pstmt);
+        ResultSet resultSet;
+        PreparedStatement pstmt = null;        
+        
+        pstmt = conn.prepareStatement("select * from member where mId=? and pw=?");
+        pstmt.setString(1, id);
+        pstmt.setString(2, pw);
+        resultSet =  pstmt.executeQuery();   
+        
+        if (resultSet.next()) {
+            return makeMemberFromResultSet(resultSet);      
+        } else {
+            return null;
         }
     }
 

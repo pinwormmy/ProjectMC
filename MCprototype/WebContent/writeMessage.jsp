@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="community.model.CommunityDTO" %>
+<%@ page import="dto.CommunityDTO" %>
 <%@ page import="community.service.WriteMessageService" %>
 
-<jsp:useBean id="message" class="community.model.CommunityDTO">
+<jsp:useBean id="message" class="dto.CommunityDTO">
 	<jsp:setProperty name="message" property="*" />
 </jsp:useBean>
 <%

@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="dto.MemberDTO"%>
+<%@ page import="dto.ProductDTO"%>
+<%@ page import="service.MemberService"%>
+<%@ page import="service.ProductService"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<% 
+		
+	ProductService productService = ProductService.getInstance();
+	List<ProductDTO> productList = new ArrayList<ProductDTO>();
+	productList = productService.showProductList();
+	
+	session.setAttribute("productList", productList);
+%>
 
 <!DOCTYPE html>
 <html>
@@ -9,11 +23,6 @@
 <title>밀슐랭 프로토타입</title>
 </head>
 <body>
-
-<% 
-	String member = (String)session.getAttribute("member");
-	pageContext.setAttribute("member", member);
-%>
 
 <c:if test="${member == null}">
 	<div class="login">
@@ -26,15 +35,29 @@
 	</div>
 </c:if>
 <c:if test="${member != null}">
-	${member} 님이 로그인 중입니다. <button onclick="location.href='logout.jsp'">로그아웃</button><br>
+	${member.mName} 님이 로그인 중입니다. <button onclick="location.href='logout.jsp'">로그아웃</button><br>
 </c:if>
 
 <hr>
 
 <h1>빠릿빠릿하게 만들어보자</h1>
+mvc적용 안하고 막짜는 중...일단 속공으로 다 짜고 보자(그대로 프로젝트 돌입할 것으로 보임..;) <br>
+아무리 못해도, 글편집기랑 상품썸네일 적용은 해보자..<br>
 
-방명록으로 오라클DB 연동 확인.
-회원가입 먼저 구현해보기
+상품목록 반복문 추가해야함 <br>
+
+<hr>
+
+<c:forEach var="productList" items="${productList}">
+	썸네일 사진 : 차후구현<br>
+	상품명 : ${productList.pName}<br>
+	가격 : ${productList.price}<br>
+	<br>
+</c:forEach>
+
+<c:if test="${member.mLevel == 2}">
+<button>상품 등록</button><br>
+</c:if>
 
 
 </body>

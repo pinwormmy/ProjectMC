@@ -1,4 +1,4 @@
-package member.model;
+package dto;
 
 import java.util.Date;
 

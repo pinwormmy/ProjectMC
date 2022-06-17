@@ -1,4 +1,4 @@
-package community.model;
+package dto;
 
 import java.util.Date;
 
