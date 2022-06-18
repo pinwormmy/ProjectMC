@@ -8,7 +8,12 @@
 	<servlet>
 		<servlet-name>DBCPInit</servlet-name>
 		<servlet-class>jdbc.DBCPInit</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>1</load-on-startup>	
+	</servlet>
+
+	<servlet>
+		<servlet-name>MemberController</servlet-name>
+		<servlet-class>controller.MemberController</servlet-class>
 	</servlet>
 
 	<welcome-file-list>
@@ -26,6 +31,6 @@
 	<filter-mapping>
 		<filter-name>EncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern> <!-- 모든 -->
-	</filter-mapping>
+	</filter-mapping>	
 
 </web-app>
