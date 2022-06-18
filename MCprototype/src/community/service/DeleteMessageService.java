@@ -2,11 +2,13 @@ package community.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import dao.CommunityDAO;
 import dto.CommunityDTO;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
+
+
+// 커뮤니티(자유게시판) 서비스 통합시키기.근데 이거 안하고 프로젝트 돌입할듯
 
 public class DeleteMessageService {
 
