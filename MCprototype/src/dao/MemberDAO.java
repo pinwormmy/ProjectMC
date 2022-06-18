@@ -39,7 +39,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(
 					"insert into member " + 
 					"(mNO, mId, pw, mname, phone, address, email, regDate) values (mno_seq.nextval, ?, ?, ?, ?, ?, ?, sysdate)");
-			// 쿼리문 수정해야함
+			
 			pstmt.setString(1, memberDTO.getmId());
 			pstmt.setString(2, memberDTO.getPw());
 			pstmt.setString(3, memberDTO.getmName());

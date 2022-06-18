@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ page import="dto.MemberDTO"%>
 <%@ page import="dto.ProductDTO"%>
-<%@ page import="service.MemberService"%>
 <%@ page import="service.ProductService"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <% 
-		
 	ProductService productService = ProductService.getInstance();
 	List<ProductDTO> productList = new ArrayList<ProductDTO>();
 	productList = productService.showProductList();
@@ -49,16 +46,15 @@ mvc적용 안하고 막짜는 중...일단 속공으로 다 짜고 보자(그대
 <hr>
 
 <c:forEach var="productList" items="${productList}">
-	썸네일 사진 : 차후구현<br>
+	(썸네일 사진~~~)<br>
 	상품명 : ${productList.pName}<br>
 	가격 : ${productList.price}<br>
 	<br>
 </c:forEach>
 
 <c:if test="${member.mLevel == 2}">
-<button>상품 등록</button><br>
+<button onclick="location.href='addProduct.jsp'">상품 등록</button><br>
 </c:if>
-
 
 </body>
 </html>
