@@ -21,7 +21,6 @@ MessageListView viewData = messageListService.getMessageList(pageNumber);
 <title>방명록</title>
 </head>
 <body>
-
 (자유게시판으로 만들어야하는데 시간없어서 패스)<br>
 
 <button onclick="location.href='index.jsp'">메인으로</button>

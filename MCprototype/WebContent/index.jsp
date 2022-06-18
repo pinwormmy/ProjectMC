@@ -37,13 +37,12 @@
 
 <hr>
 
-<h1>빠릿빠릿하게 만들어보자</h1>
+<h1>밀슐랭 프로토타입 예습</h1>
 예상치보다 너무 적게 만들었네...프로젝트때 이 속도 감안해야함<br>
 다른것보다 컨트롤러 구조 빨리 파악해야함<br>
 그리고 ui구현(디자인) 너무 몰라서 컨트롤러 다음 바로 익히기<br>
 
 <button onclick="location.href='list.jsp'">유동닉 방명록으로</button>
-
 <hr>
 
 <c:forEach var="productList" items="${productList}">
