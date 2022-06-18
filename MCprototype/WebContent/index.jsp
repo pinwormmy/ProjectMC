@@ -43,6 +43,8 @@ mvc적용 안하고 막짜는 중...일단 속공으로 다 짜고 보자(그대
 사진업로드 구현 중에서 post 적용에서 막힘.(get으로 구현했던걸 폼태그만 바꾸니까 데이터가 안넘어감)<br>
 MVC 적용이랑 부트스트랩 적용정도 해보고 넘어가기<br>
 
+<button onclick="location.href='list.jsp'">유동닉 방명록으로</button>
+
 <hr>
 
 <c:forEach var="productList" items="${productList}">
