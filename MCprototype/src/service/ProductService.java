@@ -2,16 +2,8 @@ package service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.List;
-
-import community.service.MessageListView;
-import community.service.ServiceException;
-import dao.CommunityDAO;
-import dao.MemberDAO;
 import dao.ProductDAO;
-import dto.CommunityDTO;
-import dto.MemberDTO;
 import dto.ProductDTO;
 import dto.ProductTypeDTO;
 import jdbc.JdbcUtil;

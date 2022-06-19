@@ -1,17 +1,20 @@
 package controller;
 
 import java.io.IOException;
-
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import dto.ProductDTO;
 import service.ProductService;
 
-public class MemberController extends HttpServlet{    
-
+public class HomeController extends HttpServlet{    
+    
     private static final long serialVersionUID = 1L;
     
     ProductService productService;
@@ -33,20 +36,16 @@ public class MemberController extends HttpServlet{
     
     private void doHandler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
    
-      
-        String fromPath = request.getRequestURI().substring(request.getContextPath().length());
-        String toPath;
+        List<ProductDTO> productList = new ArrayList<ProductDTO>();
         
-        if(fromPath.equals("/login.gg")) {
-            System.out.println("아직 한창 미완성이지만 작동했냐?");
-            toPath = "home";
-        }else if(fromPath.equals("/signUp.gg")) {
-            toPath = "/signUp.jsp";
-        }else {
-            toPath = "/error.jsp";
-        }
-                
-        RequestDispatcher dispatcher = request.getRequestDispatcher(toPath);
+        try {
+            productList = productService.showProductList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }        
+        request.setAttribute("productList", productList);
+  
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
 }

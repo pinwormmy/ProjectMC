@@ -5,13 +5,6 @@
 <%@ page import="service.ProductService"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<% 
-	ProductService productService = ProductService.getInstance();
-	List<ProductDTO> productList = new ArrayList<ProductDTO>();
-	productList = productService.showProductList();
-	
-	session.setAttribute("productList", productList);
-%>
 
 <!DOCTYPE html>
 <html>

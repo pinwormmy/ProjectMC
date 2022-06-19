@@ -19,6 +19,6 @@
 <body>
 회원가입 완료. 환영합니다~
 <br/>
-<a href="index.jsp">[처음으로]</a>
+<a href="home">[처음으로]</a>
 </body>
 </html>

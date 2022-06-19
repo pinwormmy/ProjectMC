@@ -12,12 +12,25 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>HomeController</servlet-name>
+		<servlet-class>controller.HomeController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HomeController</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>MemberController</servlet-name>
 		<servlet-class>controller.MemberController</servlet-class>
 	</servlet>
+	<servlet-mapping>
+		<servlet-name>MemberController</servlet-name>
+		<url-pattern>*.gg</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>home</welcome-file>
 	</welcome-file-list>
 
 	<filter> <!-- 이 필터를 거친 후 밑에 필터가 있다면 그 필터를 거친다 (필터체인 이렇게 일어남) -->
