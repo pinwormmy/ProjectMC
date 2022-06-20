@@ -11,6 +11,20 @@
 <head>
 <meta charset="UTF-8">
 <title>밀슐랭 프로토타입</title>
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+<script src="js/vendor/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/main.js"></script>
 </head>
 <body>
 
@@ -29,6 +43,9 @@
 </c:if>
 
 <hr>
+<section id="hero-area">
+	<img class="img-responsive" src="images/header.jpg" alt="">
+</section>
 
 <h1>밀슐랭 프로토타입 예습</h1>
 예상치보다 너무 적게 만들었네...프로젝트때 이 속도 감안해야함<br>
@@ -39,7 +56,7 @@
 <hr>
 
 <c:forEach var="productList" items="${productList}">
-	(썸네일 사진~~~)<br>
+	<img src="images/t_하울정식.jpg"><br>
 	상품명 : ${productList.pName}<br>
 	가격 : ${productList.price}<br>
 	<br>

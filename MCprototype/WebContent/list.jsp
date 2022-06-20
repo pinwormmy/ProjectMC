@@ -19,6 +19,22 @@ MessageListView viewData = messageListService.getMessageList(pageNumber);
 <html>
 <head>
 <title>방명록</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+<script src="js/vendor/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/main.js"></script>
 </head>
 <body>
 (자유게시판으로 만들어야하는데 시간없어서 패스)<br>
