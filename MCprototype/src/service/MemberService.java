@@ -48,7 +48,7 @@ public class MemberService {
         Connection conn = null;
         try {
             conn = ConnectionProvider.getConnection();
-            MemberDAO memberDAO = MemberDAO.getInstance();
+            MemberDAO memberDAO = MemberDAO.getInstance();   
             
             return memberDAO.login(conn, id, pw);
             

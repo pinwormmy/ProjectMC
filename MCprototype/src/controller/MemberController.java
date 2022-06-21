@@ -8,18 +8,22 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dto.MemberDTO;
+import service.MemberService;
 import service.ProductService;
 
 public class MemberController extends HttpServlet{    
 
     private static final long serialVersionUID = 1L;
     
-    ProductService productService;
+    MemberService memberService;
 
 
     public void init(ServletConfig config) throws ServletException{
         
-        productService = ProductService.getInstance();     
+        memberService = MemberService.getInstance();  
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,6 +35,7 @@ public class MemberController extends HttpServlet{
     }
  
     
+    @SuppressWarnings("null")
     private void doHandler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
    
       
@@ -38,8 +43,25 @@ public class MemberController extends HttpServlet{
         String toPath;
         
         if(fromPath.equals("/login.gg")) {
-            System.out.println("아직 한창 미완성이지만 작동했냐?");
-            toPath = "home";
+            
+            String id = request.getParameter("mId");
+            String pw = request.getParameter("pw");
+            
+            HttpSession session = request.getSession();
+            
+            MemberDTO member = new MemberDTO();
+            
+            member = memberService.login(id, pw);            
+            
+            if(member != null){
+                session.setAttribute("member", member);
+                toPath = "home";
+            }else{                
+                request.setAttribute("msg", "로그인 오류!! 아디와 비번 확인해주세요~!");
+                request.setAttribute("url", "index.jsp");
+                toPath = "/alert.jsp";
+            }            
+            
         }else if(fromPath.equals("/signUp.gg")) {
             toPath = "/signUp.jsp";
         }else {
