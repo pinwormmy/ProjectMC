@@ -47,10 +47,9 @@
 	<img class="img-responsive" src="images/header.jpg" alt="">
 </section>
 
-<h1>밀슐랭 프로토타입 예습</h1>
-예상치보다 너무 적게 만들었네...프로젝트때 이 속도 감안해야함<br>
-다른것보다 컨트롤러 구조 빨리 파악해야함<br>
-그리고 ui구현(디자인) 너무 몰라서 컨트롤러 다음 바로 익히기<br>
+<h1>밀슐랭 프로토타입 보조</h1>
+회원 관리 빨리 구현<br>
+이메일로 비번 찾기? 구현하기<br>
 
 <button onclick="location.href='list.jsp'">유동닉 방명록으로</button>
 <hr>
