@@ -50,7 +50,6 @@ public class MemberController extends HttpServlet{
             HttpSession session = request.getSession();
             
             MemberDTO member = new MemberDTO();
-            
             member = memberService.login(id, pw);            
             
             if(member != null){
@@ -58,12 +57,13 @@ public class MemberController extends HttpServlet{
                 toPath = "home";
             }else{                
                 request.setAttribute("msg", "로그인 오류!! 아디와 비번 확인해주세요~!");
-                request.setAttribute("url", "index.jsp");
+                request.setAttribute("url", "home");
                 toPath = "/alert.jsp";
             }            
             
         }else if(fromPath.equals("/signUp.gg")) {
             toPath = "/signUp.jsp";
+            
         }else {
             toPath = "/error.jsp";
         }
