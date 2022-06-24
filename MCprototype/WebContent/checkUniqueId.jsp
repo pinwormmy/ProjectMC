@@ -16,6 +16,12 @@
 <head>
 <meta charset="UTF-8">
 <title>ID 중복확인</title>
+<style>
+	button{		
+		margin: auto;
+		diplay: block;
+	}
+</style>
 </head>
 <body>
 <br>
