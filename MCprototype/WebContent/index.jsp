@@ -43,18 +43,16 @@
 			onclick="location.href='logout.jsp'">로그아웃</button>
 		<br>
 	</c:if>
-
 	<hr>
 	<section id="hero-area">
 		<img class="img-responsive" src="images/header.jpg" alt="">
 	</section>
 
 	<h1>밀슐랭 프로토타입 보조</h1>
-	회원 관리 어느 수준까지 구현할지 물어보기
-	<br> 사실상 다 끝났는데, 비밀번호 변경 그리고 회원정보 수정 어떻게 할지 검토
-	<br> 다 할줄 알긴 알아야지, 그리고 다른 파트도 마찬가지!!
-	<br> 짬짬히 머부터 할까? 그림 업로드 구현해보기
-	<br>
+	회원 관리 어느 수준까지 구현할지 물어보기<br> 
+	사실상 다 끝났는데, 비밀번호 변경 그리고 회원정보 수정 어떻게 할지 검토<br> 
+	다 할줄 알긴 알아야지, 그리고 다른 파트도 마찬가지!!<br> 
+	짬짬히 머부터 할까? 그림 업로드 구현해보기<br>	
 
 	<button onclick="location.href='list.jsp'">유동닉 방명록으로</button>
 	<hr>
