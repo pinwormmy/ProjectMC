@@ -93,7 +93,9 @@ public class ProductDAO {
                 do {
                     productTypeList.add(makeProductTypeFromResultSet(rs));
                 } while (rs.next());
+                
                 return productTypeList;
+                
             } else {
                 return Collections.emptyList();
             }
